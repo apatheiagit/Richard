@@ -1,6 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC|Playfair+Display:400,700|Roboto&subset=cyrillic');
+@notebook: ~"(max-height: 800px)";
+@mobile: ~"(max-width: 767px)";
+@tablet: ~"(min-width: 768px) and (max-width: 992px)";
+@medium: ~"(min-width: 992px) and (max-width: 1200px)";
+@mobile_tablet: ~"(max-width: 992px)";
+@small_tablet: ~"(min-width: 451px) and (max-width: 767px)";
+@smartphone: ~"(max-width: 450px)";
+@gray: #898989;
+@gray-fon: #f1f2f2;
+
 body.node-type-storytelling {
-    background-color: white;
+  background-color: white;
 }
 .richard-body{
 	background: url(../img/richard/bg.png) repeat;
+}
+.rasporka{
+	@media (min-width: 1200px){
+    height: 80px;
+    width: 100%;
+	}
+}
+#header{
+	background: #FFF;
+	height: 80px;
+	@media (min-width: 1200px){
+    position: fixed;
+    top: 0;
+    width: 100%;
+	}
+	& .sandwitch{
+		float: left;
+	}
+	& .backtosite{
+		float: left;
+		width: 50px;
+	}
+	& .totoplink{
+		float: left;
+		margin-right: 10px;
+		width: 86px;
+	}
+	& .header-nav{
+		padding: 15px 0;
+		height: 80px;
+	}
+}
+& .sandwich-wrap{
+	background-color: white;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 40px;
+  height: 40px;
+  line-height: 36px;
+  padding: 0 5px;
+  float: left;
+  z-index: 500;
+  margin: 4px 20px 0 0;
+  &.mobile-toggle{
+		& .toggle-btn {
+			visibility: hidden;
+			&:before {
+		    transform: rotate(45deg);
+		    -webkit-transform: rotate(45deg);
+		    top: 0;
+		    visibility: visible;
+			}
+			&:after {
+		    transform: rotate(-45deg);
+		    -webkit-transform: rotate(-45deg);
+		    top: 0;
+		    visibility: visible;
+			}
+		}
+    }
+	& .toggle-btn {
+	    background-color: @gray;	        
+	    display: inline-block;
+	    vertical-align: middle;
+	    width: 100%;
+	    height: 4px;
+			border-radius: 2px;
+			position: relative;
+		&:before, &:after {
+		    background-color: @gray;
+		    content: "";
+		    display: inline-block;
+		    width: 100%;
+		    height: 4px;
+		    border-radius: 2px;
+		    position: absolute;
+		    left: 0;
+		    transition: transform .2s,top .2s;
+    		-webkit-transition: transform .2s,top .2s;
+		}
+		&:before{
+			top: -10px;
+		}	
+		&:after {
+			bottom: -10px;
+		}	    
+	}
+}
+#menu{		
+	float: left;
+	padding: 10px 0;
+	@media (max-width: 1200px){
+    display: none;
+	}	
+	&.menu-mobile{
+		position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: 400;
+    height: 100%;
+    background-color: rgba(246,246,246,.8);
+    display: block;
+    text-align: center;
+    & li{
+    	display: block;
+    	margin: 0 10px;
+    	& a{
+    		font-size: 14px;
+    		padding: 10px 10px;
+    	}
+    }
+	}
+	& li{
+		display: inline-block;
+		list-style: none;
+		& a{
+			color: #555555;
+			border-radius: 20px;
+			display: inline-block;
+			font-size: 11px;
+			font-family: 'Roboto', sans-serif;
+			padding: 6px 8px 5px;
+			text-transform: uppercase;
+			transition: 0.5s ease-in; 
+			&.active{
+				background-color: #ebebeb; 
+				color: #363636;				
+			}
+			&:hover{
+				background-color: #ebebeb; 
+				text-decoration: none;
+			}
+		}
+	}
+}
+@keyframes draggle {
+	from {margin-bottom: 10px;}
+	to {margin-bottom: 15px;}
+}
+.main-photo{
+	background: url(../img/richard/main-photo.png) no-repeat top center;
+	background-size: cover;
+	color: white;
+	height: 824px;
+	@media @medium{
+		height: 650px;
+	}
+	& .container{
+		position: relative;
+		height: 100%;
+		text-align: center;
+	}
+	& .main-title-block{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translateY(-50%) translateX(-50%);
+	}
+	& .title-common{
+		font-size: 20px;
+	}
+	& .title-main{
+		font-family: 'Cormorant SC', serif; 
+		font-size: 50px;
+		max-width: 576px;
+	}
+	& .mouse-block{
+		position: absolute;
+		bottom: 50px;
+		left: 50%;
+		width: 34px;
+		margin-left: -17px;
+		text-align: center;
+		& .mouse{
+			background: url(../img/richard/mouse.png) no-repeat;
+			height: 60px;
+			width: 34px;
+		}
+		& .mouse-arrow{
+			background: url(../img/richard/mouse-arrow.png) no-repeat center;
+			height: 16px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 34px;
+			animation: draggle 0.5s infinite ease alternate;
+		}
+	}
 }

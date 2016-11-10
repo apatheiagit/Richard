@@ -1,1 +1,203 @@
-body.node-type-storytelling{background-color:#fff}.richard-body{background:url(../img/richard/bg.png) repeat}
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC|Playfair+Display:400,700|Roboto&subset=cyrillic');
+body.node-type-storytelling {
+  background-color: white;
+}
+.richard-body {
+  background: url(../img/richard/bg.png) repeat;
+}
+@media (min-width: 1200px) {
+  .rasporka {
+    height: 80px;
+    width: 100%;
+  }
+}
+#header {
+  background: white;
+  height: 80px;
+}
+@media (min-width: 1200px) {
+  #header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}
+#header .sandwitch {
+  float: left;
+}
+#header .backtosite {
+  float: left;
+  width: 50px;
+}
+#header .totoplink {
+  float: left;
+  margin-right: 10px;
+  width: 86px;
+}
+#header .header-nav {
+  padding: 15px 0;
+  height: 80px;
+}
+.sandwich-wrap {
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  padding: 0 5px;
+  float: left;
+  z-index: 500;
+  margin: 4px 20px 0 0;
+}
+.sandwich-wrap.mobile-toggle .toggle-btn {
+  visibility: hidden;
+}
+.sandwich-wrap.mobile-toggle .toggle-btn:before {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: 0;
+  visibility: visible;
+}
+.sandwich-wrap.mobile-toggle .toggle-btn:after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  top: 0;
+  visibility: visible;
+}
+.sandwich-wrap .toggle-btn {
+  background-color: #898989;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  position: relative;
+}
+.sandwich-wrap .toggle-btn:before,
+.sandwich-wrap .toggle-btn:after {
+  background-color: #898989;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: transform .2s,top .2s;
+  -webkit-transition: transform .2s,top .2s;
+}
+.sandwich-wrap .toggle-btn:before {
+  top: -10px;
+}
+.sandwich-wrap .toggle-btn:after {
+  bottom: -10px;
+}
+#menu {
+  float: left;
+  padding: 10px 0;
+}
+@media (max-width: 1200px) {
+  #menu {
+    display: none;
+  }
+}
+#menu.menu-mobile {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 400;
+  height: 100%;
+  background-color: rgba(246, 246, 246, 0.8);
+  display: block;
+  text-align: center;
+}
+#menu.menu-mobile li {
+  display: block;
+  margin: 0 10px;
+}
+#menu.menu-mobile li a {
+  font-size: 14px;
+  padding: 10px 10px;
+}
+#menu li {
+  display: inline-block;
+  list-style: none;
+}
+#menu li a {
+  color: #555555;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  padding: 6px 8px 5px;
+  text-transform: uppercase;
+  transition: 0.5s ease-in;
+}
+#menu li a.active {
+  background-color: #ebebeb;
+  color: #363636;
+}
+#menu li a:hover {
+  background-color: #ebebeb;
+  text-decoration: none;
+}
+@keyframes draggle {
+  from {
+    margin-bottom: 10px;
+  }
+  to {
+    margin-bottom: 15px;
+  }
+}
+.main-photo {
+  background: url(../img/richard/main-photo.png) no-repeat top center;
+  background-size: cover;
+  color: white;
+  height: 824px;
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .main-photo {
+    height: 650px;
+  }
+}
+.main-photo .container {
+  position: relative;
+  height: 100%;
+  text-align: center;
+}
+.main-photo .main-title-block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.main-photo .title-common {
+  font-size: 20px;
+}
+.main-photo .title-main {
+  font-family: 'Cormorant SC', serif;
+  font-size: 50px;
+  max-width: 576px;
+}
+.main-photo .mouse-block {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 34px;
+  margin-left: -17px;
+  text-align: center;
+}
+.main-photo .mouse-block .mouse {
+  background: url(../img/richard/mouse.png) no-repeat;
+  height: 60px;
+  width: 34px;
+}
+.main-photo .mouse-block .mouse-arrow {
+  background: url(../img/richard/mouse-arrow.png) no-repeat center;
+  height: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 34px;
+  animation: draggle 0.5s infinite ease alternate;
+}

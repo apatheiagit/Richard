@@ -8,26 +8,51 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/richard.css">
+	<script src="http://cyprusfortravellers.net/sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js?v=1.10.2"></script>
 </head>
 <body class="node-type-storytelling">
 <div class="richard-body">
-	<div id="header">
+	<header id="header">
   <div class="container">
-    <div class="header-nav">
-      <div class="back-button"><a href="/"></a></div>   
-      <ul id="menu">
-        <li data-menuanchor="chapter0" class="active"><a href="#chapter0"><img src="img/richard/story_logo.png" alt=""></a></li>
-		    <li data-menuanchor="chapter1"><a href="#chapter1">По следам Лазаря</a></li>
-		    <li data-menuanchor="chapter2"><a href="#chapter2">Древний Китион</a></li>
-		    <li data-menuanchor="chapter3"><a href="#chapter3">Соленое озеро</a></li>
-				<li data-menuanchor="chapter4"><a href="#chapter4">Встреча с апостолами</a></li>
-        <li ><span class="anchor" data-href="#map2">глина</span></li>
-				<li ><span class="anchor" data-href="#map3">церковь</span></li>
+    <div class="header-nav">         
+    		<span class="sandwich-wrap hidden-lg"><span class="toggle-btn"></span></span>
+      	<div class="backtosite"><a href="/"><img src="img/richard/backtosite.png" alt=""></a></div>
+        <div class="totoplink"><a href="#chapter0" ><img src="img/richard/story_logo.png" alt=""></a></div>
+      <ul id="menu">      	                                           
+		    <li ><a href="#chapter1">Гавань Лимассола</a></li>
+		    <li ><a href="#chapter2">За крепостными стенами</a></li>
+		    <li ><a href="#chapter3">Замок Святого Иллариона</a></li>
+				<li ><a href="#chapter4">Крепость Буффавенто</a></li>
+        <li ><a href="#chapter5">Замок Кантара</a></li>
+				<li ><a href="#chapter6">Цифры из жизни</a></li>
        </ul>
     </div>
-  </div>
+  </header>
+  <div class="rasporka"></div>
+  <section class="section" id="chapter0">
+  	<div class="main-photo">
+  		<div class="container">
+	  		<div class="main-title-block">
+	  			<h4 class="title-common">По чужим следам</h4>
+	  			<h1 class="title-main">Приключения <br>Ричарда Львиное Сердце <br>на Кипре</h1>
+	  		</div>
+	  		<div class="mouse-block">
+	  			<div class="mouse"></div>
+	  			<div class="mouse-arrow"></div>
+	  		</div>
+  		</div>
+  	</div>
+  </section>
 </div>
 </div>
+<script>
+  (function ($) {
+  	$('.sandwich-wrap').click(function(){
+        $(this).toggleClass('mobile-toggle');
+        $('#menu').toggleClass('menu-mobile');
+      });
+  }(jQuery));
+</script>
 <div class="somit somit-footer">
   <div class="container footer-margin-top">
   <div class="footer-border-top">
