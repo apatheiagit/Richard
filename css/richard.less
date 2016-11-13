@@ -458,11 +458,94 @@ body.node-type-storytelling {
 		bottom: 0;
 	}
 }
-.vkadnik-animation{
-	background-color: green;
+.p_trop(@width, @height, @top:0, @left:0, @z:0){
+	height: @height;
+	width: @width;
+	left: @left;
+	top: @top;
+	z-index: @z;
+}
+.vsadnik-animation{
+	overflow: hidden;
+	position: relative;
 	width: 118px;
 	&-1{
+		background: url(../img/richard/p_tropa_1.png) no-repeat center 50px;
 		height: 950px;
+	}
+	&-2{
+		background: url(../img/richard/p_tropa_2.png) no-repeat center 50px;
+		height: 920px;
+	}
+	& div{
+		background-position: center;
+		background-repeat: no-repeat;
+		position: absolute;
+	}
+	.vsadnik{
+		background-image: url(../img/richard/vsadnik.png);
+		.p_trop(108px, 118px, 0, 0, 80);
+		transition: all 0.2s ease;
+	}
+	.p_holmy{
+		background-image: url(../img/richard/p_holmy.png);
+		.p_trop(65px, 22px, 540px, 50px);
+	}
+	.p_kamen{
+		background-image: url(../img/richard/p_kamen.png);
+		.p_trop(66px, 59px, 680px, 0, 2);
+	}
+	.p_kust{
+		background-image: url(../img/richard/p_kust.png);
+		.p_trop(72px, 36px, 250px, 10px);
+	}
+	.p_palma_1{
+		background-image: url(../img/richard/p_palma_1.png);
+		.p_trop(45px, 57px, 130px, 65px);
+	}
+	.p_palma_2{
+		background-image: url(../img/richard/p_palma_2.png);
+		.p_trop(26px, 47px, 200px, 80px);
+	}
+	.p_palmy{
+		background-image: url(../img/richard/p_palmy.png);
+		.p_trop(44px, 63px, 330px, 10px);
+	}
+	.point_1{
+		background-image: url(../img/richard/point_1.png);
+		.p_trop(114px, 114px);
+	}
+	.point_2{
+		background-image: url(../img/richard/point_2.png);
+		.p_trop(118px, 118px, 400px);
+	}
+	.point_3{
+		background-image: url(../img/richard/point_3.png);
+		.p_trop(116px, 116px, 580px);
+	}
+	.point_4{
+		background-image: url(../img/richard/point_4.png);
+		.p_trop(119px, 141px, 808px, 0, 90);
+	}
+	.point_5{
+		background-image: url(../img/richard/point_5.png);
+		.p_trop(118px, 129px, 0);
+	}
+	.point_6{
+		background-image: url(../img/richard/point_6.png);
+		.p_trop(118px, 118px, 160px);
+	}
+	.point_7{
+		background-image: url(../img/richard/point_7.png);
+		.p_trop(118px, 118px, 480px);
+	}
+	.point_8{
+		background-image: url(../img/richard/point_8.png);
+		.p_trop(117px, 117px, 800px);
+	}
+	.p_tochka{
+		background-image: url(../img/richard/p_tochka.png);
+		.p_trop(52px, 58px, 320px, 40px);
 	}
 }
 .snoska{
