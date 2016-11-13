@@ -282,6 +282,17 @@ body.node-type-storytelling {
 	width: 28px;
 	margin: 10px auto 10px;
 }
+.element-4{
+	background: url(../img/richard/element_4.png) no-repeat;
+	height: 52px;
+	width: 507px;
+	margin: 20px auto 20px;
+	@media @mobile{
+		background-size: contain;
+		height: 30px;
+		width: 300px;
+	}
+}
 .right-remark{
 	float: right;
 	margin-left: 30px;
@@ -301,8 +312,20 @@ body.node-type-storytelling {
 			clear: left;
 		}
 	}
+	&--isaak{
+		margin-top: 300px;		
+	}
+	&--limassol{
+		margin-top: 60px;
+	}
+	&--museum{
+		margin-top: 120px;
+	}
 	& img{
 		margin-bottom: 15px;
+	}
+	@media @mobile{
+		margin-top: 15px;
 	}
 }
 .center-m-right{
@@ -345,7 +368,9 @@ body.node-type-storytelling {
 		margin-bottom: 15px;
 	}
 	&.commont-text-lg-1{
-		padding-left: 5px;
+		@media (min-width: 1200px){
+			padding-left: 10px;
+		}
 	}
 }
 .chapter-title{
@@ -358,18 +383,25 @@ body.node-type-storytelling {
 }
 .cap{
 	float: left;
-	margin: 0 5px 5px 0;
+	margin: 0 5px 1px 0;
 	text-indent: -300px;
 	overflow: hidden;
+	height: 86px;
+	width: 68px;		
 	&.cap_k{
-		background: url(../img/richard/k.png) no-repeat;
-		height: 86px;
-		width: 68px;		
+		background: url(../img/richard/k.png) no-repeat;	
 	}
 	&.cap_v{
-		background: url(../img/richard/v.png) no-repeat;
-		height: 86px;
-		width: 68px;		
+		background: url(../img/richard/v.png) no-repeat;	
+	}
+	&.cap_n{
+		background: url(../img/richard/n.png) no-repeat;	
+	}
+	&.cap_d{
+		background: url(../img/richard/d.png) no-repeat;	
+	}
+	&.cap_p{
+		background: url(../img/richard/p.png) no-repeat;	
 	}
 }
 .col-kadry{
@@ -383,7 +415,7 @@ body.node-type-storytelling {
 	float: right;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	max-width: 395px;
+	max-width: 402px;
 	&-1{
 		margin-left: 30px;
 	}
@@ -407,17 +439,23 @@ body.node-type-storytelling {
 	font-size: 16px;
 	font-weight: 400;
 	text-transform: uppercase;
+	margin: 10px 0;
 	padding: 30px 0;
 	max-width: 600px;
 	position: relative;
-	&:before{
+	&:before, &:after{
 		content: "";
 		position: absolute;
 		background: url(../img/richard/element_2.png) no-repeat;
 		height: 8px;
 		width: 46px;
-		top: 0;
 		left: 0;
+	}
+	&:before{
+		top: 0;
+	}
+	&:after{
+		bottom: 0;
 	}
 }
 .vkadnik-animation{
@@ -425,5 +463,121 @@ body.node-type-storytelling {
 	width: 118px;
 	&-1{
 		height: 950px;
+	}
+}
+.snoska{
+	border: 1px solid #000;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: 400;
+	font-style: italic;
+	text-align: center;
+	padding: 20px;
+	max-width: 235px;
+	@media @medium{
+		padding: 15px;
+	}
+	@media @tablet{
+		padding: 15px;
+	}
+	@media @mobile{
+		max-width: 100%;
+		margin-bottom: 20px;
+		font-size: 14px;
+	}
+	&--big{
+		max-width: 390px;
+		font-size: 16px;
+		text-align: left;
+		margin: 30px 0;
+	}
+}
+.h3-title{
+	font-size: 24px;
+	font-weight: 600;
+	margin: 25px 0 10px 0;
+	@media @mobile{
+		font-size: 18px;
+	}
+}
+.h4-title{
+	font-size: 24px;
+	margin: 5px 0 10px 0;
+	@media @mobile{
+		font-size: 18px;
+	}
+}
+figcaption{
+	position: relative;
+	font-size: 12px;
+	padding: 10px 0 20px;
+	clear: right;
+	&:after{
+		content: "";
+		background-color: #e1e1e1;
+		height: 3px;
+		width: 40px;
+		position: absolute;
+		left: 0;
+		bottom: 10px;
+	}
+}
+.video-block{
+	position: relative;
+	margin-bottom: 60px;
+	overflow: hidden;
+	& .bgvideo {	
+	  min-width: 100%;
+	  min-height: 100%;
+	  max-width: 100%;
+	  width: auto;
+	  height: auto;
+	  z-index: -9999;
+	}
+}
+.col-sm-nopadding{
+	@media (min-width: 1200px){
+		padding-left: 0;
+	}
+}
+.two-photo{
+	min-height: 266px;
+}
+.infografika{
+	font-family: 'Roboto', serif;
+	font-size: 7.0rem;
+	margin: 2.5rem;
+	text-align: center;
+}
+.hidden-xxs{
+	@media @smartphone{
+		display: none;
+	}
+}
+.section-end{
+	border-bottom: 6px solid #f3f3f3;
+	padding-bottom: 40px;
+	& .container{
+		background: url(../img/richard/element_5.png) no-repeat center bottom;
+		padding-bottom: 50px;
+	}
+}
+.richard-bg{
+	background: url(../img/richard/Rich.png) no-repeat right top;
+	background-size: contain;
+	height: 834px;
+	margin-top: -40px;
+	padding-top: 50px;
+	position: relative;
+	z-index: 30;
+	@media @medium{
+		height: 734px;
+	}
+	@media @tablet {
+		height: 634px;
+	}
+	@media @mobile {
+		background: none;
+		height: auto;
 	}
 }
