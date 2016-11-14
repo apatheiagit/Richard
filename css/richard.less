@@ -484,8 +484,8 @@ body.node-type-storytelling {
 	}
 	.vsadnik{
 		background-image: url(../img/richard/vsadnik.png);
-		.p_trop(108px, 118px, 0, 0, 80);
-		transition: all 0.2s ease;
+		.p_trop(108px, 118px, 0, 0, 20);
+		//transition: all 0.2s ease;
 	}
 	.p_holmy{
 		background-image: url(../img/richard/p_holmy.png);
@@ -512,36 +512,51 @@ body.node-type-storytelling {
 		.p_trop(44px, 63px, 330px, 10px);
 	}
 	.point_1{
-		background-image: url(../img/richard/point_1.png);
-		.p_trop(114px, 114px);
+		background-image: url(../img/richard/p_tochka.png);
+		transition: all 0.5s ease;
+		.p_trop(114px, 114px, 0, 0, 0);		
+		&.active{
+			background-image: url(../img/richard/point_1.png);
+			z-index: 30;
+		}
 	}
 	.point_2{
-		background-image: url(../img/richard/point_2.png);
-		.p_trop(118px, 118px, 400px);
+		background-image: url(../img/richard/p_tochka.png);
+		transition: all 0.5s ease;
+		.p_trop(118px, 118px, 400px, 0,  0);
+		&.active{
+			background-image: url(../img/richard/point_2.png);
+			z-index: 30;
+		}
 	}
-	.point_3{
-		background-image: url(../img/richard/point_3.png);
-		.p_trop(116px, 116px, 580px);
+	.point_3{		
+		background-image: url(../img/richard/p_tochka.png);
+		transition: all 0.5s ease;
+		.p_trop(116px, 116px, 580px, 0, 0);
+		&.active{
+			background-image: url(../img/richard/point_3.png);
+			z-index: 30;
+		}
 	}
 	.point_4{
 		background-image: url(../img/richard/point_4.png);
-		.p_trop(119px, 141px, 808px, 0, 90);
+		.p_trop(119px, 141px, 808px, 0, 30);
 	}
 	.point_5{
 		background-image: url(../img/richard/point_5.png);
-		.p_trop(118px, 129px, 0);
+		.p_trop(118px, 129px, 0, 0, 30);
 	}
 	.point_6{
 		background-image: url(../img/richard/point_6.png);
-		.p_trop(118px, 118px, 160px);
+		.p_trop(118px, 118px, 160px, 0, 30);
 	}
 	.point_7{
 		background-image: url(../img/richard/point_7.png);
-		.p_trop(118px, 118px, 480px);
+		.p_trop(118px, 118px, 480px, 0, 30);
 	}
 	.point_8{
 		background-image: url(../img/richard/point_8.png);
-		.p_trop(117px, 117px, 800px);
+		.p_trop(117px, 117px, 800px, 0, 30);
 	}
 	.p_tochka{
 		background-image: url(../img/richard/p_tochka.png);

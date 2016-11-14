@@ -376,21 +376,32 @@
 			var scrollTop = $(window).scrollTop();  
 			var winHeight = $(window).height();
 			var nowScrollTop = $(this).scrollTop();
-			var vsadnikAnimation1 = $('.vsadnik-animation').offset().top - winHeight;
-	    var vsadnikAnimation2 = $('.vsadnik-animation-2').offset().top - winHeight;
+			var vsadnikAnimation1 = $('.vsadnik-animation').offset().top - winHeight + 300;
+	    var vsadnikAnimation2 = $('.vsadnik-animation-2').offset().top - winHeight + 300;
+      var realDelta = Math.abs(lastScrollTop - nowScrollTop);
+      var step = 60;      
 	    
-	    if(Math.abs(lastScrollTop - nowScrollTop) >= delta){
+	    if(realDelta >= delta){
+        //console.log(realDelta);
     		if (nowScrollTop > lastScrollTop){
     			if (scrollTop > vsadnikAnimation1){
     				if($('.vsadnik-1').position().top < 750){
-	        		$('.vsadnik-1').css({ top: "+=60"});
+	        		$('.vsadnik-1').animate({ top: "+="+step}, 200);
+              $('.point_1').addClass('active');
+              if( $('.vsadnik-1').position().top > 250){
+                $('.point_2').addClass('active');
+              }
+              if( $('.vsadnik-1').position().top > 530){
+                $('.point_3').addClass('active');
+              }
+              //console.log("down: "+$('.vsadnik-1').position().top);
 	        	}
     			}else{
     				$('.vsadnik-1').css({ top: "0"});
     			}
     			if (scrollTop > vsadnikAnimation2){
     				if($('.vsadnik-2').position().top < 700){
-	        		$('.vsadnik-2').css({ top: "+=60"});
+	        		$('.vsadnik-2').animate({ top: "+="+step}, 200);
 	        	}
     			}else{
     				$('.vsadnik-2').css({ top: "0"});
@@ -398,14 +409,23 @@
     		}else{
     			if (scrollTop > vsadnikAnimation1){
     				if($('.vsadnik-1').position().top > 60){
-	        		$('.vsadnik-1').css({ top: "-=60"});
+	        		$('.vsadnik-1').animate({ top: "-="+step}, 200);
+              if($('.vsadnik-1').position().top < 600){
+                $('.point_3').addClass('active');
+              }
+              if($('.vsadnik-1').position().top < 330){
+                $('.point_2').addClass('active');
+              }
+              if($('.vsadnik-1').position().top < 100){
+                $('.point_1').addClass('active');
+              }
 	        	}
     			}else{
     				$('.vsadnik-1').css({ top: "750px"});
     			}
     			if (scrollTop > vsadnikAnimation2){
     				if($('.vsadnik-2').position().top > 60){
-	        		$('.vsadnik-2').css({ top: "-=60"});
+	        		$('.vsadnik-2').animate({ top: "-="+step}, 200);
 	        	}
     			}else{
     				$('.vsadnik-2').css({ top: "700px"});
