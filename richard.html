@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/richard.css">
 	<script src="http://cyprusfortravellers.net/sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js?v=1.10.2"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
 </head>
 <body class="node-type-storytelling">
 <div class="richard-body">
@@ -245,7 +246,6 @@
             	<div class="point_6"></div>
             	<div class="point_7"></div>
             	<div class="point_8"></div>
-            	<div class="p_tochka"></div>
             </div>
           </div>
           <div class="col-lg-10">
@@ -370,7 +370,7 @@
         return false; 
    	});
    	var lastScrollTop = 0, delta = 5;
-   	var move = 1;
+   	var move = 1, move2 = 1;
    	$(window).scroll(function(){
    		console.log('sroll');
 	    menu_active();
@@ -378,8 +378,8 @@
 			var scrollTop = $(window).scrollTop();  
 			var winHeight = $(window).height();
 			var nowScrollTop = $(this).scrollTop();
-			var vsadnikAnimation1 = $('.vsadnik-animation-1').offset().top - winHeight + 300;
-	    var vsadnikAnimation2 = $('.vsadnik-animation-2').offset().top - winHeight + 300;
+			var vsadnikAnimation1 = $('.vsadnik-animation-1').offset().top - winHeight + 250;
+	    var vsadnikAnimation2 = $('.vsadnik-animation-2').offset().top - winHeight + 250;
       var realDelta = Math.abs(lastScrollTop - nowScrollTop);
       var step = 60;      
 	    
@@ -388,49 +388,53 @@
     			if (scrollTop > vsadnikAnimation1){
     				if(move == 1){
               $('.point_1').addClass('opened');
-              $('.vsadnik-1').stop().animate({ top: 398}, 3000, function(){ $('.point_2').addClass('opened'); move = 2; });
+              $('.vsadnik-1').stop().show().animate({ top: 398}, 2500, 'easeOutBounce', function(){ $('.point_2').addClass('opened'); $('.vsadnik-1').hide(); move = 2; });
 	        	}
 	        	if(move == 2){
-	    				$('.vsadnik-1').stop().animate({ top: 578}, 1500, function(){ $('.point_3').addClass('opened'); move = 3;});
+	    				$('.vsadnik-1').stop().show().animate({ top: 578}, 1500, 'easeOutBounce', function(){ $('.point_3').addClass('opened'); $('.point_2').addClass('opened'); $('.vsadnik-1').hide(); move = 3;});
 	    			}
 	    			if(move == 3){
-	    				$('.vsadnik-1').stop().animate({ top: 810}, 2000, function() { move = 4;});
+	    				$('.vsadnik-1').stop().show().animate({ top: 810}, 2000, 'easeOutBounce', function(){ $('.vsadnik-1').hide(); move = 4;});
 	    			}
-    			}    			
+    			}
+          if (scrollTop > vsadnikAnimation2){
+            if(move2 == 1){
+              $('.vsadnik-2').stop().show().animate({ top: 160}, 700, 'easeOutBounce', function(){ $('.point_6').addClass('opened'); $('.vsadnik-2').hide(); move2 = 2; });
+            }
+            if(move2 == 2){
+              $('.vsadnik-2').stop().show().animate({ top: 480}, 1500, 'easeOutBounce', function(){ $('.point_7').addClass('opened'); $('.point_6').addClass('opened'); $('.vsadnik-2').hide(); move2 = 3;});
+            }
+            if(move2 == 3){
+              $('.vsadnik-2').stop().show().animate({ top: 810}, 2000, 'easeOutBounce', function(){ $('.point_8').addClass('opened'); $('.vsadnik-2').hide(); move2 = 4;});
+            }
+          }    			
     		}else{
     			if (scrollTop > vsadnikAnimation1){
     				if(move == 4){
-    					$('.vsadnik-1').stop().animate({ top: 578}, 2000, function() { $('.point_3').removeClass('opened');  move = 3;});
+    					$('.vsadnik-1').stop().show().animate({ top: 578}, 2000, 'easeOutBounce', function() { $('.point_3').removeClass('opened'); $('.vsadnik-1').hide(); move = 3;});
     				}
     				if(move == 3){
-    					$('.vsadnik-1').stop().animate({ top: 398}, 1500, function() { $('.point_2').removeClass('opened'); move = 2;});
+    					$('.vsadnik-1').stop().show().animate({ top: 398}, 1500, 'easeOutBounce', function() { $('.point_2').removeClass('opened'); $('.point_3').removeClass('opened'); $('.vsadnik-1').hide(); move = 2;});
     				}
     				if(move == 2){
-    					$('.vsadnik-1').stop().animate({ top: 0}, 3000, function() { $('.point_1').removeClass('opened'); move = 1; });
+    					$('.vsadnik-1').stop().show().animate({ top: 0}, 3000, 'easeOutBounce', function() { $('.point_1').removeClass('opened'); $('.point_2').removeClass('opened'); $('.vsadnik-1').hide(); move = 1; });
     				}
-    			}    		
+    			}
+          if (scrollTop > vsadnikAnimation2){
+            if(move == 4){
+              $('.point_8').removeClass('opened');
+              $('.vsadnik-2').stop().show().animate({ top: 480}, 2000, 'easeOutBounce', function() { $('.point_7').removeClass('opened'); $('.vsadnik-2').hide(); move2 = 3;});
+            }
+            if(move == 3){
+              $('.vsadnik-2').stop().show().animate({ top: 160}, 1500, 'easeOutBounce', function() { $('.point_6').removeClass('opened'); $('.point_7').removeClass('opened'); $('.vsadnik-2').hide(); move2 = 2;});
+            }
+            if(move == 2){
+              $('.vsadnik-2').stop().show().animate({ top: 0}, 700, 'easeOutBounce', function() { $('.point_5').removeClass('opened'); $('.point_6').removeClass('opened'); $('.vsadnik-2').hide();  move2 = 1; });
+            }
+          }   		
     		}
     		lastScrollTop = nowScrollTop;
     	}
-
-      /*if (scrollTop > vsadnikAnimation2){
-	    	if(Math.abs(lastScrollTop - nowScrollTop) >= delta){
-	    		if (nowScrollTop > lastScrollTop){
-	        	if($('.vsadnik-2').position().top < 700){
-	        		$('.vsadnik-2').css({ top: "+=60"});
-	        	}
-	        }else{
-	        	if($('.vsadnik-2').position().top > 60){
-	        		$('.vsadnik-2').css({ top: "-=60"});
-	        	}	        	
-	        }
-	        lastScrollTop = nowScrollTop;
-        }
-      }else{
-      	$('.vsadnik-2').css({ top: "0"});
-      }*/
-
-
 	  });
     function menu_active(){
         var scrollTop = $(window).scrollTop();  
