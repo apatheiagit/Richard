@@ -46,6 +46,19 @@ body.node-type-storytelling {
     top: 0;
     width: 100%;
   }
+  #header.fixedMenu {
+    height: 50px;
+    transition: all 0.5s ease-in;
+  }
+  #header.fixedMenu .header-nav {
+    padding: 0;
+    height: 50px;
+    transition: all 0.5s ease-in;
+  }
+  #header.fixedMenu .backtosite img {
+    transform: scale(0.8);
+    transition: transform 0.5s ease-in;
+  }
 }
 #header .backtosite {
   float: left;
@@ -503,6 +516,7 @@ body.node-type-storytelling {
   overflow: hidden;
   position: relative;
   width: 118px;
+  z-index: 90;
 }
 .vsadnik-animation-1 {
   background: url(../img/richard/p_tropa_1.png) no-repeat center 50px;
@@ -511,6 +525,12 @@ body.node-type-storytelling {
 .vsadnik-animation-2 {
   background: url(../img/richard/p_tropa_2.png) no-repeat center 50px;
   height: 920px;
+}
+.vsadnik-animation.fixed {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -570px;
 }
 .vsadnik-animation div {
   background-position: center;
@@ -576,7 +596,7 @@ body.node-type-storytelling {
 }
 .vsadnik-animation .point_1 {
   background-image: url(../img/richard/p_tochka.png);
-  transition: all 0.5s ease;
+  transition: all 1s ease-in;
   height: 114px;
   width: 114px;
   left: 0;
@@ -589,7 +609,7 @@ body.node-type-storytelling {
 }
 .vsadnik-animation .point_2 {
   background-image: url(../img/richard/p_tochka.png);
-  transition: all 0.5s ease;
+  transition: all 1s ease-in;
   height: 118px;
   width: 118px;
   left: 0;
@@ -676,6 +696,15 @@ body.node-type-storytelling {
   top: 320px;
   z-index: 0;
 }
+@media (min-width: 1200px) {
+  .castle_limassol {
+    background-color: #fdfcfa;
+    position: fixed;
+    top: 250px;
+    left: 50%;
+    margin-left: -450px;
+  }
+}
 .snoska {
   border: 1px solid #000;
   border-radius: 10px;
@@ -685,6 +714,12 @@ body.node-type-storytelling {
   text-align: center;
   padding: 20px;
   max-width: 235px;
+  transition: all 1s ease;
+}
+@media (min-width: 1200px) {
+  .snoska {
+    opacity: 0;
+  }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   .snoska {
@@ -703,7 +738,12 @@ body.node-type-storytelling {
     font-size: 14px;
   }
 }
+.snoska.opened {
+  opacity: 1;
+  transform: translateY(10px);
+}
 .snoska--big {
+  opacity: 1 !important;
   max-width: 390px;
   font-size: 16px;
   text-align: left;

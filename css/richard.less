@@ -44,6 +44,19 @@ body.node-type-storytelling {
     position: fixed;
     top: 0;
     width: 100%;
+     &.fixedMenu{
+     	height: 50px;
+     	transition: all 0.5s ease-in;
+     	& .header-nav{
+     		padding: 0;
+			height: 50px;
+			transition: all 0.5s ease-in;
+     	}
+     	& .backtosite img{
+     		transform: scale(0.8);		    
+		    transition: transform 0.5s ease-in;
+     	}
+     }
 	}
 	& .backtosite{
 		float: left;
@@ -469,6 +482,7 @@ body.node-type-storytelling {
 	overflow: hidden;
 	position: relative;
 	width: 118px;
+	z-index: 90;
 	&-1{
 		background: url(../img/richard/p_tropa_1.png) no-repeat center 50px;
 		height: 950px;
@@ -476,6 +490,12 @@ body.node-type-storytelling {
 	&-2{
 		background: url(../img/richard/p_tropa_2.png) no-repeat center 50px;
 		height: 920px;
+	}
+	&.fixed{
+		position: fixed;
+		top: 0;
+		left: 50%;
+		margin-left: -570px;
 	}
 	& div{
 		background-position: center;
@@ -514,7 +534,7 @@ body.node-type-storytelling {
 	}
 	.point_1{
 		background-image: url(../img/richard/p_tochka.png);
-		transition: all 0.5s ease;
+		transition: all 1s ease-in;
 		.p_trop(114px, 114px, 0, 0, 10);		
 		&.opened{
 			background-image: url(../img/richard/point_1.png);
@@ -523,7 +543,7 @@ body.node-type-storytelling {
 	}
 	.point_2{
 		background-image: url(../img/richard/p_tochka.png);
-		transition: all 0.5s ease;
+		transition: all 1s ease-in;
 		.p_trop(118px, 118px, 280px, 0,  10);
 		&.opened{
 			background-image: url(../img/richard/point_2.png);
@@ -579,6 +599,15 @@ body.node-type-storytelling {
 		.p_trop(52px, 58px, 320px, 40px);
 	}
 }
+.castle_limassol{
+	@media (min-width: 1200px){
+		background-color: #fdfcfa;
+		position: fixed;
+		top: 250px;
+		left: 50%;
+		margin-left: -450px;
+	}
+}
 .snoska{
 	border: 1px solid #000;
 	border-radius: 10px;
@@ -588,6 +617,10 @@ body.node-type-storytelling {
 	text-align: center;
 	padding: 20px;
 	max-width: 235px;
+	transition: all 1s ease;
+	@media (min-width: 1200px){
+		opacity: 0;
+	}
 	@media @medium{
 		padding: 15px;
 	}
@@ -599,7 +632,12 @@ body.node-type-storytelling {
 		margin-bottom: 20px;
 		font-size: 14px;
 	}
+	&.opened{
+		opacity: 1;
+		transform: translateY(10px);
+	}
 	&--big{
+		opacity: 1 !important;
 		max-width: 390px;
 		font-size: 16px;
 		text-align: left;

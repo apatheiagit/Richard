@@ -154,7 +154,7 @@
       </div>
       <div class="row">
       	<div class="col-lg-3 col-lg-offset-1 col-md-3 col-sm-4">
-      		<div class="snoska"><p>Амбруаз: «В городе Лимассол, где начался бой, у них не осталось ни единой двери, ни единого окна, откуда бы не стреляли из лука, ни бочки, ни защелки, ни засова, ни щита, ни старой галеры или старой баржи, балки или доски или ступеньки; всё они стащили на берег, чтобы нападать на паломников. Мы были в худшем положении, ибо мы наступали с моря, нам было тесно в наших битком забитых маленьких барках, мы были отягощены колебанием волн и всем бременем нашего тяжелого оружия. Мы были пешими, и в их стране. Но воевали мы лучше».</p></div>
+      		<div class="snoska castle_limassol snosochka"><p>Амбруаз: «В городе Лимассол, где начался бой, у них не осталось ни единой двери, ни единого окна, откуда бы не стреляли из лука, ни бочки, ни защелки, ни засова, ни щита, ни старой галеры или старой баржи, балки или доски или ступеньки; всё они стащили на берег, чтобы нападать на паломников. Мы были в худшем положении, ибо мы наступали с моря, нам было тесно в наших битком забитых маленьких барках, мы были отягощены колебанием волн и всем бременем нашего тяжелого оружия. Мы были пешими, и в их стране. Но воевали мы лучше».</p></div>
       	</div>
       	<div class="col-lg-8 col-md-8 col-sm-7">
       		<div class="big-photo-block">
@@ -257,7 +257,7 @@
 				        </div>
 				      </div>
 				      <div class="col-lg-3 col-md-3 col-sm-4 col-sm-nopadding">
-				         <div class="snoska">
+				         <div class="snoska castle_illarion snosochka">
 				          <p>Сегодня Замок Святого Иллариона — это одна из трех сохранившихся горных форти&shy;фикаций Кипра. А в Средние века крепость слави&shy;лась тем, что никто не мог взять ее штурмом.</p>
 				        </div>
 				      </div>
@@ -308,7 +308,7 @@
 				        </div>
 				      </div>
 				      <div class="col-lg-3 col-md-3 col-sm-4 col-sm-nopadding">
-				         <div class="snoska">
+				         <div class="snoska castle_cyprus snosochka">
 				          <p>Кстати, чуть позже Ричард, не имея возмож&shy;ности содер&shy;жать остров, продал его тампли&shy;ерам за 100 тысяч безантов. Затем Кипр перекупил тот самый Ги де Лузиньян, основатель Кипрского ко&shy;ролевства, которому было суждено про&shy;существовать вплоть до 1489 года. </p>
 				        </div>
 				      </div>
@@ -351,6 +351,7 @@
   	</div>
   </section>
 </div>
+<script src="js/jquery-mousewheel/jquery.mousewheel.min.js"></script>
 <script>
   (function ($) {
   	$('.sandwich-wrap').click(function(){
@@ -370,82 +371,101 @@
         return false; 
    	});
    	var lastScrollTop = 0, delta = 5;
-   	var move = 1, move2 = 1;
-   	$(window).scroll(function(){
-   		console.log('sroll');
-	    menu_active();
-	    /* vsadnik */	    
-			var scrollTop = $(window).scrollTop();  
-			var winHeight = $(window).height();
-			var nowScrollTop = $(this).scrollTop();
-			var vsadnikAnimation1 = $('.vsadnik-animation-1').offset().top - winHeight + 250;
-	    var vsadnikAnimation2 = $('.vsadnik-animation-2').offset().top - winHeight + 250;
-      var realDelta = Math.abs(lastScrollTop - nowScrollTop);
-      var step = 60;      
-	    
-	    if(realDelta >= delta){
-    		if (nowScrollTop > lastScrollTop){
-    			if (scrollTop > vsadnikAnimation1){
-    				if(move == 1){
-              $('.point_1').addClass('opened');
-              $('.vsadnik-1').stop().show().animate({ top: 398}, 2500, 'easeOutBounce', function(){ $('.point_2').addClass('opened'); $('.vsadnik-1').hide(); move = 2; });
-	        	}
-	        	if(move == 2){
-	    				$('.vsadnik-1').stop().show().animate({ top: 578}, 1500, 'easeOutBounce', function(){ $('.point_3').addClass('opened'); $('.point_2').addClass('opened'); $('.vsadnik-1').hide(); move = 3;});
-	    			}
-	    			if(move == 3){
-	    				$('.vsadnik-1').stop().show().animate({ top: 810}, 2000, 'easeOutBounce', function(){ $('.vsadnik-1').hide(); move = 4;});
-	    			}
-    			}
-          if (scrollTop > vsadnikAnimation2){
-            if(move2 == 1){
-              $('.vsadnik-2').stop().show().animate({ top: 160}, 700, 'easeOutBounce', function(){ $('.point_6').addClass('opened'); $('.vsadnik-2').hide(); move2 = 2; });
-            }
-            if(move2 == 2){
-              $('.vsadnik-2').stop().show().animate({ top: 480}, 1500, 'easeOutBounce', function(){ $('.point_7').addClass('opened'); $('.point_6').addClass('opened'); $('.vsadnik-2').hide(); move2 = 3;});
-            }
-            if(move2 == 3){
-              $('.vsadnik-2').stop().show().animate({ top: 810}, 2000, 'easeOutBounce', function(){ $('.point_8').addClass('opened'); $('.vsadnik-2').hide(); move2 = 4;});
-            }
-          }    			
-    		}else{
-    			if (scrollTop > vsadnikAnimation1){
-    				if(move == 4){
-    					$('.vsadnik-1').stop().show().animate({ top: 578}, 2000, 'easeOutBounce', function() { $('.point_3').removeClass('opened'); $('.vsadnik-1').hide(); move = 3;});
-    				}
-    				if(move == 3){
-    					$('.vsadnik-1').stop().show().animate({ top: 398}, 1500, 'easeOutBounce', function() { $('.point_2').removeClass('opened'); $('.point_3').removeClass('opened'); $('.vsadnik-1').hide(); move = 2;});
-    				}
-    				if(move == 2){
-    					$('.vsadnik-1').stop().show().animate({ top: 0}, 3000, 'easeOutBounce', function() { $('.point_1').removeClass('opened'); $('.point_2').removeClass('opened'); $('.vsadnik-1').hide(); move = 1; });
-    				}
-    			}
-          if (scrollTop > vsadnikAnimation2){
-            if(move == 4){
-              $('.point_8').removeClass('opened');
-              $('.vsadnik-2').stop().show().animate({ top: 480}, 2000, 'easeOutBounce', function() { $('.point_7').removeClass('opened'); $('.vsadnik-2').hide(); move2 = 3;});
-            }
-            if(move == 3){
-              $('.vsadnik-2').stop().show().animate({ top: 160}, 1500, 'easeOutBounce', function() { $('.point_6').removeClass('opened'); $('.point_7').removeClass('opened'); $('.vsadnik-2').hide(); move2 = 2;});
-            }
-            if(move == 2){
-              $('.vsadnik-2').stop().show().animate({ top: 0}, 700, 'easeOutBounce', function() { $('.point_5').removeClass('opened'); $('.point_6').removeClass('opened'); $('.vsadnik-2').hide();  move2 = 1; });
-            }
-          }   		
-    		}
-    		lastScrollTop = nowScrollTop;
-    	}
+   	var move = 1, move2 = 1, vw1 = "108px", vh1 = "118px";
+    var vsadnik1 = $('.vsadnik-1');
+    $('.section-animation-1').on('mousewheel', function(event) {
+      //console.log(event.deltaX, event.deltaY, event.deltaFactor);
+      console.log(vsadnik1.position().top);
+      //console.log(move);
+      if (event.deltaY < 0){
+        if (move !== 0){
+          vsadnik1.stop().animate({ opacity: 1, top: "+=100"});
+          delta += 10;
+          $('.vsadnik-animation-1').css('transform','translateY('+delta+'px)');
+        }
+        if (vsadnik1.position().top >= 300 && vsadnik1.position().top < 500){
+          //move = 0;  
+          //vsadnik1.stop().animate({ opacity: 0 }, 1500, function(){ move = 1;});
+          $('.point_2').addClass('opened');
+        }
+        if (vsadnik1.position().top >= 500 && vsadnik1.position().top < 800){
+          //move = 0;  
+          //vsadnik1.stop().animate({ opacity: 0 }, 1500, function(){ move = 1;});
+          $('.point_3').addClass('opened');
+        }
+        if (vsadnik1.position().top >= 800){
+          vsadnik1.stop().animate({ top: 800, opacity: 0});
+        }
+      }else{
+        if (move !== 0){
+          vsadnik1.stop().animate({ opacity: 1, top: "-=100"});
+          delta -= 10;
+          $('.vsadnik-animation-1').css('transform','translateY('+delta+'px)');
+        }
+        if (vsadnik1.position().top <= 500 && vsadnik1.position().top > 300){
+          $('.point_3').removeClass('opened');
+          //vsadnik1.stop().animate({ opacity: 1 });
+        }
+        if (vsadnik1.position().top <= 300){
+          $('.point_2').removeClass('opened');
+          //vsadnik1.stop().animate({ opacity: 1 });
+        }
+        if (vsadnik1.position().top <= 90){
+          vsadnik1.stop().animate({ top: 0, opacity: 0});
+        }
+      }
+    });
+
+   	$(window).scroll(function(){   		
+	    menu_active();   
+	    vsadnik_animation();
 	  });
+   	function vsadnik_animation(){
+        var scrollTop = $(window).scrollTop();  
+		var winHeight = $(window).height();
+		var Animation1_start = 2033, Animation1_end = 4650;
+	    var limassol_position_open = 2800, limassol_position_close = 3400;
+	    var fortress_position_open = 4300, fortress_position_close = 4650;
+
+	    //console.log($('#chapter2').offset().top);
+
+	    if (scrollTop > Animation1_start && scrollTop < Animation1_end){
+        	$('.vsadnik-animation-1').addClass('fixed');
+        	$('.point_1').addClass('opened');
+        }else{
+        	$('.vsadnik-animation-1').removeClass('fixed');
+        	$('.point_1').removeClass('opened');
+        	$('.point_2').removeClass('opened');
+        	$('.point_3').removeClass('opened');
+        }
+        if (scrollTop > Animation1_start && scrollTop < limassol_position_open){
+        	if (scrollTop > lastScrollTop){
+        		$('.vsadnik-1').stop().animate({ opacity: 1, top: "+=35"});
+        	}else{
+        		$('.vsadnik-1').stop().animate({ opacity: 1, top: "-=35"});
+        	}
+        }
+        if (scrollTop > limassol_position_open && scrollTop < limassol_position_close){
+        	$('.castle_limassol').addClass('opened');
+        	$('.point_2').addClass('opened');        	
+        }else{
+        	$('.castle_limassol').removeClass('opened');
+        }
+        if (scrollTop > fortress_position_open && scrollTop < fortress_position_close){
+        	$('.point_3').addClass('opened');
+        }
+        lastScrollTop = scrollTop;
+	}
     function menu_active(){
         var scrollTop = $(window).scrollTop();  
-				var winHeight = $(window).height();
-				var scrollToVideo = $('.video-block').offset().top - winHeight;				
-				var chapter1 =  $('#chapter1').offset().top - winHeight;   
-				var chapter2 =  $('#chapter2').offset().top - winHeight;
-				var chapter3 =  $('#chapter3').offset().top - winHeight;
-				var chapter4 =  $('#chapter4').offset().top - winHeight;
-				var chapter5 =  $('#chapter5').offset().top - winHeight;
-				var chapter6 =  $('#chapter6').offset().top - winHeight;
+		var winHeight = $(window).height();
+		var scrollToVideo = $('.video-block').offset().top - winHeight;				
+		var chapter1 =  $('#chapter1').offset().top - winHeight;   
+		var chapter2 =  $('#chapter2').offset().top - winHeight;
+		var chapter3 =  $('#chapter3').offset().top - winHeight;
+		var chapter4 =  $('#chapter4').offset().top - winHeight;
+		var chapter5 =  $('#chapter5').offset().top - winHeight;
+		var chapter6 =  $('#chapter6').offset().top - winHeight;
         if(scrollTop > chapter1  && scrollTop < chapter2){
             $('.active').removeClass('active');
             $('#anc_chapter1').addClass('active');      
@@ -469,7 +489,13 @@
         }
         if (scrollTop > scrollToVideo){
         	$('.bgvideo').get(0).play();
-        }        
+        }
+        if (scrollTop > 80){
+        	$('#header').addClass('fixedMenu');
+        }else{
+        	$('#header').removeClass('fixedMenu');
+        }  
+               
     }
   }(jQuery));
 </script>
@@ -494,25 +520,7 @@
           
           <div class="title">Подпишись на события Кипра</div>
           <div class="description">Каждую неделю мы знакомим вас с интересными событиями из жизни острова.<br>Коротко, информативно, познавательно!</div>          
-            <div class="region region-subscribe">
-    <div id="block-simplenews-61" class="block block-simplenews first last odd">
-
-      
-  <div class="simplenews-block">
-      <p>Подписывайтесь на самые свежие и интересные обзоры о жизни и досуге Кипра</p>
-  
-      <form class="simplenews-subscribe" action="/storytelling/po-chuzhim-sledam" method="post" id="simplenews-block-form-61" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-mail">
-  <label for="edit-mail">E-mail <span class="form-required" title="Это поле обязательно для заполнения.">*</span></label>
- <input type="text" id="edit-mail" name="mail" value="" size="20" maxlength="128" class="form-text required" />
-</div>
-<input type="submit" id="edit-submit--2" name="op" value="Подписаться" class="form-submit" /><input type="hidden" name="form_build_id" value="form-1GRNoxPpAdcqP5KyJXixmu2Zem8IX1URZMbQjyHSsOg" />
-<input type="hidden" name="form_id" value="simplenews_block_form_61" />
-</div></form>  
-  
-  
-  </div>
-</div>
-  </div>
+    
         </div>
       </div>      
       <div class="col-sm-12 col-md-3">
