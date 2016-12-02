@@ -493,7 +493,7 @@ body.node-type-storytelling {
 	}
 	&.fixed{
 		position: fixed;
-		top: 0;
+		top: 50px;
 		left: 50%;
 		margin-left: -570px;
 	}
@@ -504,21 +504,25 @@ body.node-type-storytelling {
 	}
 	.vsadnik{
 		background-image: url(../img/richard/vsadnik.png);
-		.p_trop(108px, 118px, 0, 0, 20);
-		opacity: 0;
-		//transition: all 0.2s ease;
+		.p_trop(76px, 83px, 0, 15px, 35);
+		transform: scale(0);
+		//opacity: 0;
+		transition: all 0.4s ease;
+		&.vscaled{
+			transform: scale(1);
+		}
 	}
 	.p_holmy{
 		background-image: url(../img/richard/p_holmy.png);
-		.p_trop(65px, 22px, 540px, 50px);
+		.p_trop(65px, 22px, 540px, 0);
 	}
 	.p_kamen{
 		background-image: url(../img/richard/p_kamen.png);
-		.p_trop(66px, 59px, 680px, 0, 2);
+		.p_trop(66px, 59px, 580px, 20px, 2);
 	}
 	.p_kust{
 		background-image: url(../img/richard/p_kust.png);
-		.p_trop(72px, 36px, 250px, 10px);
+		.p_trop(72px, 36px, 150px, 10px);
 	}
 	.p_palma_1{
 		background-image: url(../img/richard/p_palma_1.png);
@@ -526,11 +530,11 @@ body.node-type-storytelling {
 	}
 	.p_palma_2{
 		background-image: url(../img/richard/p_palma_2.png);
-		.p_trop(26px, 47px, 200px, 80px);
+		.p_trop(26px, 47px, 350px, 80px);
 	}
 	.p_palmy{
 		background-image: url(../img/richard/p_palmy.png);
-		.p_trop(44px, 63px, 450px, 10px);
+		.p_trop(44px, 63px, 230px, 10px);
 	}
 	.point_1{
 		background-image: url(../img/richard/p_tochka.png);
@@ -544,7 +548,7 @@ body.node-type-storytelling {
 	.point_2{
 		background-image: url(../img/richard/p_tochka.png);
 		transition: all 1s ease-in;
-		.p_trop(118px, 118px, 280px, 0,  10);
+		.p_trop(118px, 118px, 200px, 0,  10);
 		&.opened{
 			background-image: url(../img/richard/point_2.png);
 			z-index: 30;
@@ -553,7 +557,7 @@ body.node-type-storytelling {
 	.point_3{		
 		background-image: url(../img/richard/p_tochka.png);
 		transition: all 0.5s ease;
-		.p_trop(116px, 116px, 580px, 0, 10);
+		.p_trop(116px, 116px, 400px, 0, 10);
 		&.opened{
 			background-image: url(../img/richard/point_3.png);
 			z-index: 30;
@@ -561,7 +565,8 @@ body.node-type-storytelling {
 	}
 	.point_4{
 		background-image: url(../img/richard/point_4.png);
-		.p_trop(119px, 141px, 850px, 0, 40);
+		.p_trop(119px, 141px, auto, 0, 40);
+		bottom: 0;
 	}
 	.point_5{
 		background-image: url(../img/richard/point_5.png);
@@ -570,7 +575,7 @@ body.node-type-storytelling {
 	.point_6{
 		background-image: url(../img/richard/p_tochka.png);
 		transition: all 0.5s ease;
-		.p_trop(118px, 118px, 280px, 0, 0);
+		.p_trop(118px, 118px, 200px, 0, 0);
 		&.opened{
 			background-image: url(../img/richard/point_6.png);
 			z-index: 30;
@@ -579,7 +584,7 @@ body.node-type-storytelling {
 	.point_7{
 		background-image: url(../img/richard/p_tochka.png);
 		transition: all 0.5s ease;
-		.p_trop(118px, 118px, 580px, 0, 0);
+		.p_trop(118px, 118px, 400px, 0, 0);
 		&.opened{
 			background-image: url(../img/richard/point_7.png);
 			z-index: 30;
@@ -588,7 +593,8 @@ body.node-type-storytelling {
 	.point_8{
 		background-image: url(../img/richard/p_tochka.png);
 		transition: all 0.5s ease;
-		.p_trop(117px, 117px, 850px, 0, 0);
+		.p_trop(117px, 117px, auto, 0, 0);
+		bottom: 0;
 		&.opened{
 			background-image: url(../img/richard/point_8.png);
 			z-index: 30;
@@ -597,6 +603,11 @@ body.node-type-storytelling {
 	.p_tochka{
 		background-image: url(../img/richard/p_tochka.png);
 		.p_trop(52px, 58px, 320px, 40px);
+	}
+}
+#chapter1{
+	@media (min-width: 1200px){
+		margin-top: 70px;
 	}
 }
 .castle_limassol{
