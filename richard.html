@@ -219,12 +219,12 @@
   	</div>
   </section>
   <div class="video-block">
-  	<video  muted class="bgvideo">
+  	<!--<video  muted class="bgvideo">
   		<source src="video/cyprus.mp4" type="video/mp4" />
 			<source src="video/cyprus.mov" />
 			<source src="video/cyprus.ogv" />
 			<source src="video/cyprus.webm" />
-		</video>
+		</video>-->
   </div>
   <section class="section">
   	<div class="container">
@@ -371,16 +371,18 @@
         vsadnik_animation_off();
         return false; 
    	});
-   	var lastScrollTop = 0, delta = 5;
-   	var move = 1, move2 = 1, vw1 = "108px", vh1 = "118px";
-
-    $('.vsadnik-animation-1').height($(window).height());
+   	var lastScrollTop = 0, lastScrollTop2 = 0, delta = 5;
+   	var winHeight = $(window).height();
+    $('.vsadnik-animation-1').height(winHeight-50);
+    $('.vsadnik-animation-2').height(winHeight-50);
     $( window ).resize(function() {
-	  $('.vsadnik-animation-1').height($(window).height());
+	  $('.vsadnik-animation-1').height(winHeight-50);
+	  $('.vsadnik-animation-2').height(winHeight-50);
 	});
    	$(window).scroll(function(){   		
 	    menu_active();   
 	    vsadnik_animation();
+	    vsadnik_animation2();
 	});
    	function vsadnik_animation(){
         var scrollTop = $(window).scrollTop();  
@@ -389,78 +391,166 @@
 		var point1_open = 1960, point1_close = 3470;
 	    var point2_open = 2900, point2_close = 3300;
 	    var point3_open = 4400, point3_close = 4700;
-
+	    var vsadnik_animation = $('.vsadnik-animation-1');
+	    var point1 = $('.point_1');
+	    var point2 = $('.point_2');
+	    var point3 = $('.point_3');
+	    var speach = $('.castle_limassol');
+	    var vsadnik = $('.vsadnik-1');
 	    /* Начало анимации */
 	    if (scrollTop < Animation1_start){
-	    	$('.vsadnik-animation-1').removeClass('fixed');
-        	$('.point_1').removeClass('opened');
-        	$('.point_2').removeClass('opened');
-        	$('.point_3').removeClass('opened');
-        	$('.castle_limassol').removeClass('opened');
-        	$('.vsadnik-1').removeClass('vscaled');
-        	$('.vsadnik-1').css({ top: 0});
+	    	vsadnik_animation.removeClass('fixed');
+        	point1.removeClass('opened');
+        	point2.removeClass('opened');
+        	point3.removeClass('opened');
+        	speach.removeClass('opened');
+        	vsadnik.removeClass('vscaled');
+        	vsadnik.css({ top: 0});
 	    }else if (scrollTop > Animation1_start && scrollTop < Animation1_end){
-        	$('.vsadnik-animation-1').addClass('fixed');
+        	vsadnik_animation.addClass('fixed');
         	/* Открытие первой точки и Перемещение Ричарда от первой ко второй точке */
 	        if (scrollTop > point1_open && scrollTop < point2_open){
-	        	$('.point_1').addClass('opened');
-	        	$('.vsadnik-1').addClass('vscaled');
-	        	$('.castle_limassol').removeClass('opened');
+	        	point1.addClass('opened');
+	        	vsadnik.addClass('vscaled');
+	        	speach.removeClass('opened');
 	        	if (scrollTop > lastScrollTop){
-	        		$('.vsadnik-1').css({ top: "+=20"});
+	        		vsadnik.css({ top: "+=20"});
 	        	}else{
-	        		$('.vsadnik-1').css({ top: "-=20"});
+	        		vsadnik.css({ top: "-=20"});
 	        	}
 	        }else /* Открытие второй точки и спичбабла */
 	        if (scrollTop > point2_open && scrollTop < point2_close){
-	        	$('.castle_limassol').addClass('opened');
-	        	$('.point_2').addClass('opened');
-	        	$('.vsadnik-1').removeClass('vscaled');
-	        	$('.vsadnik-1').css({ top: '260px'}); 
+	        	speach.addClass('opened');
+	        	point2.addClass('opened');
+	        	vsadnik.removeClass('vscaled');
+	        	vsadnik.css({ top: '260px'}); 
 	        }else /* Перемещение Ричарда от второй к третьей точке*/
 	        if (scrollTop > point2_close && scrollTop < point3_open){
-				$('.castle_limassol').removeClass('opened');
-	        	$('.vsadnik-1').addClass('vscaled');
+				speach.removeClass('opened');
+	        	vsadnik.addClass('vscaled');
 	        	if (scrollTop > lastScrollTop){
-	        		$('.vsadnik-1').css({ top: "+=18"});
+	        		vsadnik.css({ top: "+=18"});
 	        	}else{
-	        		$('.vsadnik-1').css({ top: "-=18"});
+	        		vsadnik.css({ top: "-=18"});
 	        	}
 	        }else /* Открытие третьей точки */
 	        if (scrollTop > point3_open && scrollTop < point3_close){
-	        	$('.point_3').addClass('opened');
-	        	$('.vsadnik-1').removeClass('vscaled');
-	        	$('.vsadnik-1').css({ top: '450px'});
+	        	point3.addClass('opened');
+	        	vsadnik.removeClass('vscaled');
+	        	vsadnik.css({ top: '450px'});
 	        }else /* Перемещение Ричарда от третьей вниз*/
 	        if (scrollTop > point3_close && scrollTop < Animation1_end){
-	        	$('.vsadnik-1').addClass('vscaled');
+	        	vsadnik.addClass('vscaled');
 	        	if (scrollTop > lastScrollTop){
-	        		$('.vsadnik-1').css({ top: "+=50"});
+	        		vsadnik.css({ top: "+=50"});
 	        	}else{
-	        		$('.vsadnik-1').css({ top: "-=50"});
+	        		vsadnik.css({ top: "-=50"});
 	        	}
 	        }      
         }else{
-        	$('.castle_limassol').removeClass('opened');
-        	$('.vsadnik-animation-1').removeClass('fixed');
-        	$('.point_1').removeClass('opened');
-        	$('.point_2').removeClass('opened');
-        	$('.point_3').removeClass('opened');
-        	$('.vsadnik-1').removeClass('vscaled');
-        	$('.vsadnik-1').css({ top: 'auto', bottom: 0});
-        }
-        
-
+        	speach.removeClass('opened');
+        	vsadnik_animation.removeClass('fixed');
+        	point1.removeClass('opened');
+        	point2.removeClass('opened');
+        	point3.removeClass('opened');
+        	vsadnik.removeClass('vscaled');
+        	vsadnik.css({ top: 'auto', bottom: 0});
+        } 
         lastScrollTop = scrollTop;
 	}
+	function vsadnik_animation2(){
+        var scrollTop = $(window).scrollTop();  
+		var winHeight = $(window).height();
+		var Animation1_start = 5950, Animation1_end = 8400;
+		var point1_open = 6250, point1_close = 6400;
+	    var point2_open = 7050, point2_close = 7300;
+	    var point3_open = 8000, point3_close = 9000;
+	    var speach2_open = 9900, speach2_close = 8000;
+	    var vsadnik_animation = $('.vsadnik-animation-2');
+	    var point1 = $('.point_6');
+	    var point2 = $('.point_7');
+	    var point3 = $('.point_8');
+	    var speach = $('.castle_illarion');
+	    var speach2 = $('.castle_cyprus');
+	    var vsadnik = $('.vsadnik-2');
+	    /* Начало анимации */
+	    if (scrollTop < Animation1_start){
+	    	vsadnik_animation.removeClass('fixed');
+        	point1.removeClass('opened');
+        	point2.removeClass('opened');
+        	point3.removeClass('opened');
+        	speach.removeClass('opened');
+        	vsadnik.removeClass('vscaled');
+        	vsadnik.css({ top: 30});
+	    }else if (scrollTop > Animation1_start && scrollTop < Animation1_end){
+        	vsadnik_animation.addClass('fixed');
+        	/* Перемещение Ричарда из замка к первой точке */
+        	if (scrollTop > Animation1_start && scrollTop < point1_open){
+        		vsadnik.addClass('vscaled');
+        		speach.removeClass('opened');
+        		if (scrollTop > lastScrollTop2){
+	        		vsadnik.css({ top: "+=25"});
+	        	}else{
+	        		vsadnik.css({ top: "-=25"});
+	        	}
+        	}else /* Открытие первой точки и спичбабла */
+	        if (scrollTop > point1_open && scrollTop < point1_close){
+	        	point1.addClass('opened');
+	        	vsadnik.removeClass('vscaled');
+	        	vsadnik.css({ top: 260});
+	        	speach.addClass('opened');
+	        }else /* Перемещение Ричарда от первой ко второй точке*/
+	        if (scrollTop > point1_close && scrollTop < point2_open){
+				speach.removeClass('opened');
+	        	vsadnik.addClass('vscaled');
+	        	if (scrollTop > lastScrollTop2){
+	        		vsadnik.css({ top: "+=18"});
+	        	}else{
+	        		vsadnik.css({ top: "-=18"});
+	        	}	        	
+	        }else /* Открытие второй точки */
+	        if (scrollTop > point2_open && scrollTop < point2_close){
+	        	point2.addClass('opened');
+	        	vsadnik.removeClass('vscaled');
+	        	vsadnik.css({ top: 450}); 
+	        }else /* Перемещение Ричарда от второй к третьей точке*/
+	        if (scrollTop > point2_close && scrollTop < point3_open){
+				speach2.removeClass('opened');
+	        	vsadnik.addClass('vscaled');
+	        	if (scrollTop > lastScrollTop2){
+	        		vsadnik.css({ top: "+=18"});
+	        	}else{
+	        		vsadnik.css({ top: "-=18"});
+	        	}
+	        }else /* Открытие третьей точки */
+	        if (scrollTop > point3_open && scrollTop < speach2_open){
+	        	point3.addClass('opened');	        	
+	        	vsadnik.removeClass('vscaled');
+	        	vsadnik.css({ top: 'auto', bottom: 0});
+	        	speach2.addClass('opened');
+	        }else /* Открытие спичбабла */
+	        if (scrollTop > speach2_open && scrollTop < Animation1_end){
+	        	speach2.addClass('opened');
+	        }      
+        }else{
+        	speach.removeClass('opened');
+        	vsadnik_animation.removeClass('fixed');
+        	point1.removeClass('opened');
+        	point2.removeClass('opened');
+        	point3.removeClass('opened');
+        	vsadnik.removeClass('vscaled');
+        	vsadnik.css({ top: 'auto', bottom: 0});
+        } 
+        lastScrollTop2 = scrollTop;
+	}
 	function vsadnik_animation_off(){
-		$('.vsadnik-animation-1').removeClass('fixed');
-    	$('.point_1').removeClass('opened');
-    	$('.point_2').removeClass('opened');
-    	$('.point_3').removeClass('opened');
-    	$('.castle_limassol').removeClass('opened');
-    	$('.vsadnik-1').removeClass('vscaled');
-    	$('.vsadnik-1').css({ top: 0});
+		/*vsadnik_animation.removeClass('fixed');
+    	point1.removeClass('opened');
+    	point2.removeClass('opened');
+    	point3.removeClass('opened');
+    	speach.removeClass('opened');
+    	vsadnik.removeClass('vscaled');
+    	vsadnik.css({ top: 0});*/
 	}
     function menu_active(){
         var scrollTop = $(window).scrollTop();  
@@ -493,9 +583,9 @@
         }else{
         	$('.active').removeClass('active');
         }
-        if (scrollTop > scrollToVideo){
+        /*if (scrollTop > scrollToVideo){
         	$('.bgvideo').get(0).play();
-        }
+        }*/
         if (scrollTop > 80){
         	$('#header').addClass('fixedMenu');
         }else{
